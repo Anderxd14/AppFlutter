@@ -43,7 +43,9 @@ Para ejecutar este proyecto, se requiere lo siguiente:
 ##TECNOLOGIAS UTILIZADAS:
 
 
-
-
-![nodejs](https://github.com/Anderxd14/AppFlutter/assets/97226743/8f2dac44-303d-4ebd-b33f-30ff26afd3f2)            ![docker (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/3a69a750-6f4c-4175-b102-d86d01b5f217)      ![PostgreSQL-Logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/ffeb4eeb-d5bf-4f87-b5de-f2cf637ff20d)             ![express-logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/febc79cd-6c7d-4c72-ae45-2c282bfa5c19) ![GitHub-Mark](https://github.com/Anderxd14/AppFlutter/assets/97226743/6bd7a934-58c5-46c7-9585-0ae4961ad281)
+![express-logo (1) (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/eb059fe3-607d-4387-84f2-26b3439e2fa0)
+![GitHub-Mark (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/b91b251d-f30b-45ad-a251-260d0fbdd855)
+![PostgreSQL-Logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/006a1f14-b983-4a2a-92b7-9679412232d0)
+![docker (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/67e37924-b50e-488c-9062-bb4b6dcc0c47)
+![nodejs (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/151a2d3e-74df-4fde-a1f0-93a0eb607e55)
 
