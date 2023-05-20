@@ -32,6 +32,7 @@ directamente, influye en la vida de una planta.
 ![3fd047f4-82b0-4a74-ab0c-0d981c03752a](https://github.com/Anderxd14/AppFlutter/assets/97226743/4c75acb3-9f3f-4791-a5e0-8a7f737fdd6a)
 
 
+
 Requisitos de Instalación
 Para ejecutar este proyecto, se requiere lo siguiente:
 
@@ -41,5 +42,5 @@ Para ejecutar este proyecto, se requiere lo siguiente:
 
 ##TECNOLOGIAS UTILIZADAS:
 
-![nodejs](https://github.com/Anderxd14/AppFlutter/assets/97226743/8f2dac44-303d-4ebd-b33f-30ff26afd3f2)            ![docker (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/3a69a750-6f4c-4175-b102-d86d01b5f217)      ![PostgreSQL-Logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/ffeb4eeb-d5bf-4f87-b5de-f2cf637ff20d)             ![express-logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/febc79cd-6c7d-4c72-ae45-2c282bfa5c19)
+![nodejs](https://github.com/Anderxd14/AppFlutter/assets/97226743/8f2dac44-303d-4ebd-b33f-30ff26afd3f2)            ![docker (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/3a69a750-6f4c-4175-b102-d86d01b5f217)      ![PostgreSQL-Logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/ffeb4eeb-d5bf-4f87-b5de-f2cf637ff20d)             ![express-logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/febc79cd-6c7d-4c72-ae45-2c282bfa5c19) ![GitHub-Mark](https://github.com/Anderxd14/AppFlutter/assets/97226743/6bd7a934-58c5-46c7-9585-0ae4961ad281)
 
