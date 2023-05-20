@@ -33,21 +33,20 @@ class _PagesHumedadState extends State<PagesHumedad> {
               return SingleChildScrollView(
                 child: DataTable(
                   columns: [
-                    const DataColumn(label: Text('RegHumedad')),
-                    const DataColumn(label: Text('ValorHumedad')),
-                    const DataColumn(label: Text('FechaRegistro')),
+                    const DataColumn(label: Text('Registro Humedad')),
+                    const DataColumn(label: Text('Valor Humedad')),
                   ],
                   rows: humedadDataList.map((humedadData) {
                     return DataRow(cells: [
-                      DataCell(Text(' ${humedadData.id}')),
-                      DataCell(Text(' ${humedadData.reghumedad}')),
-                      DataCell(Text(' ${humedadData.createdAt}')),
+                      DataCell(Text('Registro Humedad # ${humedadData.id}')),
+                      DataCell(
+                          Text('Valor Humedad: ${humedadData.reghumedad}')),
                     ]);
                   }).toList(),
                 ),
               );
             } else {
-              return const CircularProgressIndicator();
+              return CircularProgressIndicator();
             }
           },
         ));
@@ -55,7 +54,7 @@ class _PagesHumedadState extends State<PagesHumedad> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    //TODO: implement initState
     super.initState();
     humedad = getHumedad();
   }
@@ -65,10 +64,10 @@ class _PagesHumedadState extends State<PagesHumedad> {
     final lista = List.from(jsonDecode(res.body));
 
     List<HumedadData> humedad = [];
-    for (var element in lista) {
-      final HumedadData hume = HumedadData.fromJson(element);
-      humedad.add(hume);
-    }
+    lista.forEach((element) {
+      final HumedadData hum = HumedadData.fromJson(element);
+      humedad.add(hum);
+    });
 
     // ignore: avoid_print
 
