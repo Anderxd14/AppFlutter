@@ -48,4 +48,5 @@ Para ejecutar este proyecto, se requiere lo siguiente:
 ![PostgreSQL-Logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/006a1f14-b983-4a2a-92b7-9679412232d0)
 ![docker (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/67e37924-b50e-488c-9062-bb4b6dcc0c47)
 ![nodejs (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/151a2d3e-74df-4fde-a1f0-93a0eb607e55)
+![flutter (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/cc255060-6cd6-4dbe-9976-3ebb82e13f7b)
 
