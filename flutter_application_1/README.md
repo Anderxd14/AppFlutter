@@ -41,6 +41,5 @@ Para ejecutar este proyecto, se requiere lo siguiente:
 
 ##TECNOLOGIAS UTILIZADAS:
 
-![nodejs](https://github.com/Anderxd14/AppFlutter/assets/97226743/8f2dac44-303d-4ebd-b33f-30ff26afd3f2)
-
+![nodejs](https://github.com/Anderxd14/AppFlutter/assets/97226743/8f2dac44-303d-4ebd-b33f-30ff26afd3f2)    ![docker (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/3a69a750-6f4c-4175-b102-d86d01b5f217)  ![PostgreSQL-Logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/ffeb4eeb-d5bf-4f87-b5de-f2cf637ff20d) ![express-logo (1)](https://github.com/Anderxd14/AppFlutter/assets/97226743/febc79cd-6c7d-4c72-ae45-2c282bfa5c19)
 
