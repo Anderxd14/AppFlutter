@@ -20,9 +20,9 @@ class _PagesLoginState extends State<PagesLogin> {
           ),
           Container(
               padding: const EdgeInsets.all(10),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     "Hola",
                     style: TextStyle(color: Colors.black, fontSize: 40),
@@ -34,9 +34,9 @@ class _PagesLoginState extends State<PagesLogin> {
               )),
           Container(
               padding: const EdgeInsets.all(10),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     "(Usuario)",
                     style: TextStyle(color: Colors.black, fontSize: 30),

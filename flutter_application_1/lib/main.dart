@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EcoRoot',
-      home: const PagesPortada(),
+      home: const PagesLogin(),
     );
   }
 }

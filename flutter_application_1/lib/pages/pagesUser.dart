@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/regHumedad.dart';
+import 'package:flutter_application_1/models/usuarios.dart';
 import 'package:http/http.dart ' as http;
-
-import '../models/usuarios.dart';
 
 class PagesUsuarios extends StatefulWidget {
   const PagesUsuarios({super.key});
