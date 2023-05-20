@@ -58,10 +58,10 @@ class _PagesUsuariosState extends State<PagesUsuarios> {
     final lista = List.from(jsonDecode(res.body));
 
     List<Usuarios> usuarios = [];
-    lista.forEach((element) {
+    for (var element in lista) {
       final Usuarios user = Usuarios.fromJson(element);
       usuarios.add(user);
-    });
+    }
 
     return usuarios;
   }
