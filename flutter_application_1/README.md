@@ -18,7 +18,7 @@ directamente, influye en la vida de una planta.
 
 
 ...
-## CAPTURAS DE PANTALLA MOCKUPS:
+## CAPTURAS DE PANTALLA:
 
 ### Captura de Pantalla 1:
 ![94ccfac6-f894-43cf-b410-bd4ce4b99a58](https://github.com/Anderxd14/AppFlutter/assets/97226743/27270f4d-2b02-4bb1-8ba4-85fada6d50dd)
