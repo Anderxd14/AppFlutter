@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart ' as http;
+import 'package:flutter_application_1/models/usuarios.dart';
 
-class MyFormPage extends StatefulWidget {
-  const MyFormPage({super.key});
+class FormUsuarios extends StatefulWidget {
+  const FormUsuarios({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _MyFormPageState createState() => _MyFormPageState();
+  State<FormUsuarios> createState() => _FormUsuariosState();
 }
 
-class _MyFormPageState extends State<MyFormPage> {
+class _FormUsuariosState extends State<FormUsuarios> {
   final _formKey = GlobalKey<FormState>();
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Users");
-  String name = '';
-  String email = '';
 
   @override
   Widget build(BuildContext context) {
@@ -47,24 +43,47 @@ class _MyFormPageState extends State<MyFormPage> {
                         }
                         return null;
                       },
-                      onSaved: (value) {
-                        name = value!;
+                      onSaved: (value) {},
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.person),
+                        hintText: 'Nombre',
+                        labelText: 'Nombre',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Por favor, ingresa tu nombre';
+                        }
+                        return null;
                       },
+                      onSaved: (value) {},
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.person),
+                        hintText: 'Apellido',
+                        labelText: 'Apellido',
+                      ),
+                      validator: (value) {},
+                      onSaved: (value) {},
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.phone),
+                        hintText: 'Ejemplo@gmail.com',
+                        labelText: 'Telefono',
+                      ),
+                      validator: (value) {},
+                      onSaved: (value) {},
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: Icon(Icons.password),
                         labelText: 'Contraseña',
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Por favor, ingresa tu contraseña';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        email = value!;
-                      },
+                      validator: (value) {},
+                      onSaved: (value) {},
                     ),
                     Padding(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -72,7 +91,7 @@ class _MyFormPageState extends State<MyFormPage> {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: const ButtonStyle(),
-                            child: const Text('Iniciar Sesion'),
+                            child: const Text('Registrate'),
                           ),
                         )),
                   ],
