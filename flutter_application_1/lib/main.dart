@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/pagesHumedad.dart';
+import 'package:flutter_application_1/pages/pagesMisPlantas.dart';
 import 'package:flutter_application_1/pages/pagesUser.dart';
 import 'package:flutter_application_1/pages/pagesLogin.dart';
 import 'package:flutter_application_1/pages/pagesPortal.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EcoRoot',
-      home: PagesPlantas(),
+      home: MisPlantas(),
     );
   }
 }

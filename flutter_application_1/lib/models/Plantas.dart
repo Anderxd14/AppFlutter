@@ -21,9 +21,9 @@ class Plantas {
     return Plantas(
       id: json['id'],
       nameP: json['nameP'],
-      DescriP: json['DescriP'],
+      DescriP: json['DescriP'] ?? 'null',
       createdAt: json['createdAt'],
-      jardineroId: int.parse(json['jardineroId']),
+      jardineroId: json['jardineroId'],
     );
   }
 }

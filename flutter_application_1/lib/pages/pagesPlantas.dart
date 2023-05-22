@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/Plantas.dart';
+import 'package:flutter_application_1/pages/pagesMisPlantas.dart';
 import 'package:http/http.dart' as http;
 
 class PagesPlantas extends StatefulWidget {
@@ -13,6 +14,7 @@ class PagesPlantas extends StatefulWidget {
 class _PagesPlantasState extends State<PagesPlantas> {
   final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas");
   final headers = {"content-type": "application/json;charset=utf-8"};
+
   final _formKey = GlobalKey<FormState>();
   late Future<List<Plantas>> plantas;
   final nameP = TextEditingController();
@@ -72,6 +74,11 @@ class _PagesPlantasState extends State<PagesPlantas> {
                                 child: TextButton(
                                   onPressed: () {
                                     savePlanta();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const MisPlantas()));
                                   },
                                   style: const ButtonStyle(),
                                   child: const Text('Registrate'),
@@ -97,5 +104,6 @@ class _PagesPlantasState extends State<PagesPlantas> {
     await http.post(url, headers: headers, body: jsonEncode(planta));
     nameP.clear();
     DescriP.clear();
+    jardineroId.clear();
   }
 }
