@@ -2,10 +2,13 @@
 // ignore: duplicate_ignore
 // ignore_for_file: file_names, unused_import, duplicate_ignore
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter_application_1/pages/PagesRcontra.dart';
 import 'package:flutter_application_1/pages/menu.dart';
+import 'package:flutter_application_1/models/usuarios.dart';
 import 'package:http/http.dart ' as http;
 
 class MyFormPage extends StatefulWidget {
@@ -18,9 +21,10 @@ class MyFormPage extends StatefulWidget {
 
 class _MyFormPageState extends State<MyFormPage> {
   final _formKey = GlobalKey<FormState>();
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Users");
-  String name = '';
-  String email = '';
+  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/auth/login");
+  final email = TextEditingController();
+  final headers = {"content-type": "application/json;charset=utf-8"};
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,47 +47,26 @@ class _MyFormPageState extends State<MyFormPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     TextFormField(
+                      controller: email,
                       decoration: const InputDecoration(
                         icon: Icon(Icons.email),
                         hintText: 'Ejemplo@gmail.com',
                         labelText: 'Email',
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Por favor, ingresa tu Email';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        name = value!;
-                      },
                     ),
                     TextFormField(
+                      controller: password,
                       decoration: const InputDecoration(
                         icon: Icon(Icons.password),
                         labelText: 'Contraseña',
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Por favor, ingresa tu contraseña';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        email = value!;
-                      },
                     ),
                     Padding(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: Center(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const PagesMenu(),
-                                ),
-                              );
+                              funcionlogin();
                             },
                             style: const ButtonStyle(),
                             child: const Text('Iniciar Sesion'),
@@ -110,5 +93,48 @@ class _MyFormPageState extends State<MyFormPage> {
             ],
           )),
     );
+  }
+
+  void funcionlogin() async {
+    final usuarios = {
+      "email": email.text,
+      "password": password.text,
+    };
+
+    final response =
+        await http.post(url, headers: headers, body: jsonEncode(usuarios));
+
+    if (response.statusCode == 200) {
+      // Las credenciales son correctas
+      // ignore: use_build_context_synchronously
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const PagesMenu(),
+        ),
+      );
+    } else {
+      // Las credenciales son incorrectas
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Credenciales incorrectas'),
+          content: const Text(
+              'El email o la contraseña son incorrectos. Por favor, inténtalo nuevamente.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      );
+    }
+
+    email.clear();
+    password.clear();
   }
 }
