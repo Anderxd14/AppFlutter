@@ -16,17 +16,15 @@ class _PagesPortadaState extends State<PagesPortada> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text('EcoRoot'),
       ),
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('PlantaF.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
+          Image.asset(
+            'assets/PlantaF.png',
+            width: 400,
+            height: 740,
+            fit: BoxFit.cover,
           ),
         ],
       ),
@@ -34,8 +32,69 @@ class _PagesPortadaState extends State<PagesPortada> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Image.asset(
-            alignment: Alignment.center,
-            'logo.png',
+            'assets/logo.png',
+            width: 200,
+            height: 200,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            height: 150,
+          ),
+          Container(
+              alignment: Alignment.center,
+              child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyFormPage()),
+                    );
+                  },
+                  child: Container(
+                    // Ancho deseado
+                    height: 50, // Alto deseado
+
+                    //margin: const EdgeInsets.all(150),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF04D0D9),
+                      border: Border.all(
+                        color: const Color(0xFF04D0D9),
+                        width: 0,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    padding: const EdgeInsets.all(1),
+                    child: const Text("Login",
+                        style:
+                            TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
+                  ))),
+          const SizedBox(height: 50),
+          Container(
+              alignment: Alignment.center,
+              child: OutlinedButton(
+                  onPressed: () {},
+                  child: Container(
+                    // Ancho deseado
+                    height: 50, // Alto deseado
+
+                    //margin: const EdgeInsets.all(150),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF04D0D9),
+                      border: Border.all(
+                        color: const Color(0xFF04D0D9),
+                        width: 0,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    padding: const EdgeInsets.all(1),
+                    child: const Text("registrarse",
+                        style:
+                            TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
+                  ))),
+          Container(
+            height: 100,
           ),
           OutlinedButton(
               onPressed: () {
