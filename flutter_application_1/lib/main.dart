@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_application_1/pages/formJardinero.dart';
 // ignore: unused_import
 import 'package:flutter_application_1/pages/pagesHumedad.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EcoRoot',
-      home: FormJardineros(),
+      home: MisPlantas(),
     );
   }
 }
