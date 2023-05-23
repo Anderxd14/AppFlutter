@@ -18,7 +18,7 @@ class _PagesUsuariosState extends State<PagesUsuarios> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('EcoRoot'),
+          title: const Text('Usuario'),
         ),
         body: FutureBuilder<List<Usuarios>>(
           future: usuarios,

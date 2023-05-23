@@ -14,17 +14,15 @@ class _PagesPortadaState extends State<PagesPortada> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: Text('EcoRoot'),
       ),
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('PlantaF.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
+          Image.asset(
+            'assets/PlantaF.png',
+            width: 400,
+            height: 740,
+            fit: BoxFit.cover,
           ),
         ],
       ),
@@ -32,62 +30,76 @@ class _PagesPortadaState extends State<PagesPortada> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Image.asset(
-            alignment: Alignment.center,
-            'logo.png',
+            'assets/logo.png',
+            width: 200,
+            height: 200,
+            fit: BoxFit.cover,
           ),
-          OutlinedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyFormPage()),
-                );
-              },
-              child: Container(
-                // Ancho deseado
-                height: 50, // Alto deseado
-                margin: const EdgeInsets.fromLTRB(
-                    10, 50, 10, 50), //izq,arriba,derecha,abajo
-                //margin: const EdgeInsets.all(150),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF04D0D9),
-                  border: Border.all(
-                    color: const Color(0xFF04D0D9),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: const EdgeInsets.all(1),
-                child: const Text("Login",
-                    style: TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
-              )),
-          SizedBox(height: 16),
-          OutlinedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FormUsuarios()),
-                );
-              },
-              child: Container(
-                // Ancho deseado
-                height: 50, // Alto deseado
-                margin: const EdgeInsets.fromLTRB(
-                    10, 50, 10, 50), //izq,arriba,derecha,abajo
-                //margin: const EdgeInsets.all(150),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF04D0D9),
-                  border: Border.all(
-                    color: const Color(0xFF04D0D9),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: const EdgeInsets.all(1),
-                child: const Text("registrarse",
-                    style: TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
-              ))
+          Container(
+            height: 150,
+          ),
+          Container(
+              alignment: Alignment.center,
+              child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyFormPage()),
+                    );
+                  },
+                  child: Container(
+                    // Ancho deseado
+                    height: 50, // Alto deseado
+
+                    //margin: const EdgeInsets.all(150),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF04D0D9),
+                      border: Border.all(
+                        color: const Color(0xFF04D0D9),
+                        width: 0,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    padding: const EdgeInsets.all(1),
+                    child: const Text("Login",
+                        style:
+                            TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
+                  ))),
+          SizedBox(height: 50),
+          Container(
+              alignment: Alignment.center,
+              child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FormUsuarios()),
+                    );
+                  },
+                  child: Container(
+                    // Ancho deseado
+                    height: 50, // Alto deseado
+
+                    //margin: const EdgeInsets.all(150),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF04D0D9),
+                      border: Border.all(
+                        color: const Color(0xFF04D0D9),
+                        width: 0,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    padding: const EdgeInsets.all(1),
+                    child: const Text("registrarse",
+                        style:
+                            TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
+                  ))),
+          Container(
+            height: 100,
+          ),
         ],
       ),
     );

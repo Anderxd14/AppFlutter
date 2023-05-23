@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/PagesRcontra.dart';
+import 'package:flutter_application_1/pages/menu.dart';
 import 'package:http/http.dart ' as http;
 
 class MyFormPage extends StatefulWidget {
@@ -19,7 +21,7 @@ class _MyFormPageState extends State<MyFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Formulario Flutter'),
+        title: const Text('Iniciar sesion'),
       ),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -70,11 +72,33 @@ class _MyFormPageState extends State<MyFormPage> {
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: Center(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PagesMenu(),
+                                ),
+                              );
+                            },
                             style: const ButtonStyle(),
                             child: const Text('Iniciar Sesion'),
                           ),
                         )),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PagesRcontra(),
+                            ),
+                          );
+                        },
+                        style: const ButtonStyle(),
+                        child: const Text('Olvide mi contraseña'),
+                      ),
+                    ),
                   ],
                 ),
               ),

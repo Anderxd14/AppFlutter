@@ -15,7 +15,7 @@ class _FormUsuariosState extends State<FormUsuarios> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Formulario Flutter'),
+        title: const Text('Nuevo usuario'),
       ),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -65,6 +65,7 @@ class _FormUsuariosState extends State<FormUsuarios> {
                         hintText: 'Apellido',
                         labelText: 'Apellido',
                       ),
+                      // ignore: body_might_complete_normally_nullable
                       validator: (value) {},
                       onSaved: (value) {},
                     ),

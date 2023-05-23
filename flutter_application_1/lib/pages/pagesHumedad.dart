@@ -30,7 +30,7 @@ class _PagesHumedadState extends State<PagesHumedad> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('EcoRoot'),
+          title: const Text('Humedad'),
         ),
         body: FutureBuilder<List<HumedadData>>(
           future: humedad,

@@ -26,7 +26,7 @@ class _PagesPlantasState extends State<PagesPlantas> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Formulario Flutter'),
+        title: const Text('Nueva planta'),
       ),
       body: SingleChildScrollView(
         child: Column(
