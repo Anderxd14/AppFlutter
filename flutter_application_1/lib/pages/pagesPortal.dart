@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/formJardinero.dart';
 import 'package:flutter_application_1/pages/pagesLogin.dart';
+// ignore: unused_import
+import 'package:flutter_application_1/pages/pagesUser.dart';
 
 class PagesPortada extends StatefulWidget {
   const PagesPortada({super.key});
@@ -22,7 +24,7 @@ class _PagesPortadaState extends State<PagesPortada> {
         children: [
           Image.asset(
             'assets/PlantaF.png',
-            width: 400,
+            width: 500,
             height: 740,
             fit: BoxFit.cover,
           ),
@@ -33,8 +35,8 @@ class _PagesPortadaState extends State<PagesPortada> {
         children: [
           Image.asset(
             'assets/logo.png',
-            width: 200,
-            height: 200,
+            width: 150,
+            height: 150,
             fit: BoxFit.cover,
           ),
           Container(
@@ -73,7 +75,13 @@ class _PagesPortadaState extends State<PagesPortada> {
           Container(
               alignment: Alignment.center,
               child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FormJardineros()),
+                    );
+                  },
                   child: Container(
                     // Ancho deseado
                     height: 50, // Alto deseado
@@ -96,60 +104,6 @@ class _PagesPortadaState extends State<PagesPortada> {
           Container(
             height: 100,
           ),
-          OutlinedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyFormPage()),
-                );
-              },
-              child: Container(
-                // Ancho deseado
-                height: 50, // Alto deseado
-                margin: const EdgeInsets.fromLTRB(
-                    10, 50, 10, 50), //izq,arriba,derecha,abajo
-                //margin: const EdgeInsets.all(150),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF04D0D9),
-                  border: Border.all(
-                    color: const Color(0xFF04D0D9),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: const EdgeInsets.all(1),
-                child: const Text("Login",
-                    style: TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
-              )),
-          const SizedBox(height: 16),
-          OutlinedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const FormJardineros()),
-                );
-              },
-              child: Container(
-                // Ancho deseado
-                height: 50, // Alto deseado
-                margin: const EdgeInsets.fromLTRB(
-                    10, 50, 10, 50), //izq,arriba,derecha,abajo
-                //margin: const EdgeInsets.all(150),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF04D0D9),
-                  border: Border.all(
-                    color: const Color(0xFF04D0D9),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: const EdgeInsets.all(1),
-                child: const Text("registrarse",
-                    style: TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
-              ))
         ],
       ),
     );

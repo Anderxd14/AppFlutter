@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/pagesHumedad.dart';
+import 'package:flutter_application_1/pages/pagesMisPlantas.dart';
+// ignore: unused_import
 import 'package:flutter_application_1/pages/pagesPlantas.dart';
 import 'package:flutter_application_1/pages/pagesUser.dart';
 
@@ -96,7 +98,7 @@ class PagesMenu extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PagesPlantas(),
+                        builder: (context) => const MisPlantas(),
                       ),
                     );
                   },

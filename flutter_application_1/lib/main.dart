@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:flutter_application_1/pages/PagesRcontra.dart';
 // ignore: unused_import
 import 'package:flutter_application_1/pages/formJardinero.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EcoRoot',
-      home: PagesRcontra(),
+      home: PagesPortada(),
     );
   }
 }
