@@ -1,66 +1,71 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/jardineros.dart';
+// ignore: unused_import
 import 'package:flutter_application_1/models/usuarios.dart';
-import 'package:http/http.dart ' as http;
+import 'package:http/http.dart' as http;
 
-class PagesUsuarios extends StatefulWidget {
-  const PagesUsuarios({super.key});
+class PagesJardineros extends StatefulWidget {
+  const PagesJardineros({super.key});
 
   @override
-  State<PagesUsuarios> createState() => _PagesUsuariosState();
+  State<PagesJardineros> createState() => _PagesJardinerosState();
 }
 
-class _PagesUsuariosState extends State<PagesUsuarios> {
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Users");
-  late Future<List<Usuarios>> usuarios;
+class _PagesJardinerosState extends State<PagesJardineros> {
+  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Jardineros");
+  late Future<List<Jardineros>> jardineros;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('EcoRoot'),
-        ),
-        body: FutureBuilder<List<Usuarios>>(
-          future: usuarios,
-          builder: (context, snap) {
-            if (snap.hasData) {
-              return ListView.builder(
-                itemCount: snap.data!.length,
-                itemBuilder: (context, i) {
-                  return ListTile(
-                    title: Text("Email: " + snap.data![i].email),
-                    //subtitle: Text("Email: " + snap.data![i].),
-                  );
-                },
-              );
-            }
-            if (snap.hasError) {
-              return const Center(
-                child: Text("Se Presento un error"),
-              );
-            }
-            return const CircularProgressIndicator();
-          },
-        ));
+      appBar: AppBar(
+        title: const Text('EcoRoot'),
+      ),
+      body: FutureBuilder<List<Jardineros>>(
+        future: jardineros,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                final jardinero = snapshot.data![index];
+                return ListTile(
+                  title: Text("Email: ${jardinero.user.email}"),
+                  subtitle: Text("Name: ${jardinero.name}"),
+                );
+              },
+            );
+          }
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text("Se Presento un error"),
+            );
+          }
+          return const CircularProgressIndicator();
+        },
+      ),
+    );
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    usuarios = getUsuarios();
+    jardineros = getJardineros();
   }
 
-  Future<List<Usuarios>> getUsuarios() async {
-    final res = await http.get(url);
-    final lista = List.from(jsonDecode(res.body));
+  Future<List<Jardineros>> getJardineros() async {
+    final response = await http.get(url);
+    final jsonData = jsonDecode(response.body);
 
-    List<Usuarios> usuarios = [];
-    for (var element in lista) {
-      final Usuarios user = Usuarios.fromJson(element);
-      usuarios.add(user);
+    List<Jardineros> jardineros = [];
+    for (var item in jsonData) {
+      final jardinero = Jardineros.fromJson(item);
+      jardineros.add(jardinero);
     }
 
-    return usuarios;
+    return jardineros;
   }
 }

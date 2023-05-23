@@ -5,19 +5,23 @@ import 'package:flutter/material.dart';
 class Usuarios {
   final int id;
   final String email;
-  //final String createdAT;
+  final String password;
+  final String createdAT;
 
   Usuarios({
     required this.id,
     required this.email,
-    //required this.createdAT,
+    required this.password,
+    required this.createdAT,
   });
 
   factory Usuarios.fromJson(Map<String, dynamic> json) {
     return Usuarios(
       id: json['id'],
       email: json['email'],
-      //createdAT: json['created_at'],
+      // ignore: unnecessary_null_in_if_null_operators
+      password: json['password'] ?? "contraseña",
+      createdAT: json['created_at'] ?? "fecha",
     );
   }
 }

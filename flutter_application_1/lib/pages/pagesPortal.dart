@@ -1,5 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/formUsuarios.dart';
+import 'package:flutter_application_1/pages/formJardinero.dart';
 import 'package:flutter_application_1/pages/pagesLogin.dart';
 
 class PagesPortada extends StatefulWidget {
@@ -14,12 +16,12 @@ class _PagesPortadaState extends State<PagesPortada> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: const Text(''),
       ),
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('PlantaF.jpg'),
                 fit: BoxFit.cover,
@@ -61,12 +63,13 @@ class _PagesPortadaState extends State<PagesPortada> {
                 child: const Text("Login",
                     style: TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
               )),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           OutlinedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const FormUsuarios()),
+                  MaterialPageRoute(
+                      builder: (context) => const FormJardineros()),
                 );
               },
               child: Container(

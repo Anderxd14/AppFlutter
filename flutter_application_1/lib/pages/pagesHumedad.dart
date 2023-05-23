@@ -1,5 +1,4 @@
-// ignore: file_names
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, file_names
 
 import 'dart:convert';
 
@@ -39,16 +38,17 @@ class _PagesHumedadState extends State<PagesHumedad> {
               final humedadDataList = snapshot.data!;
               return SingleChildScrollView(
                 child: DataTable(
-                  columns: [
-                    const DataColumn(label: Text('RegHumedad')),
-                    const DataColumn(label: Text('ValorHumedad')),
-                    const DataColumn(label: Text('FechaReg')),
+                  columns: const [
+                    DataColumn(label: Text('RegHumedad')),
+                    DataColumn(label: Text('ValorHumedad')),
+                    DataColumn(label: Text('FechaReg')),
                   ],
                   rows: humedadDataList.map((humedadData) {
                     return DataRow(cells: [
                       DataCell(Text('${humedadData.id}')),
                       DataCell(Text('${humedadData.reghumedad}')),
-                      DataCell(Text('${humedadData.plantaId}')),
+                      // ignore: unnecessary_string_interpolations
+                      DataCell(Text('${humedadData.createdAt}')),
                     ]);
                   }).toList(),
                 ),
@@ -62,7 +62,6 @@ class _PagesHumedadState extends State<PagesHumedad> {
 
   @override
   void initState() {
-    //TODO: implement initState
     super.initState();
     selectedPlantId = widget.selectedPlantId;
     humedad = getHumedad();

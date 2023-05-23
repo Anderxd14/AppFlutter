@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/Plantas.dart';
@@ -11,6 +13,7 @@ class PagesPlantas extends StatefulWidget {
   State<PagesPlantas> createState() => _PagesPlantasState();
 }
 
+// ignore: duplicate_ignore
 class _PagesPlantasState extends State<PagesPlantas> {
   final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas");
   final headers = {"content-type": "application/json;charset=utf-8"};
@@ -18,7 +21,6 @@ class _PagesPlantasState extends State<PagesPlantas> {
   final _formKey = GlobalKey<FormState>();
   late Future<List<Plantas>> plantas;
   final nameP = TextEditingController();
-  // ignore: non_constant_identifier_names
   final jardineroId = TextEditingController();
   final DescriP = TextEditingController();
 
