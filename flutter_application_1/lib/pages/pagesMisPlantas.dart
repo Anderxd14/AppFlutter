@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/Plantas.dart';
 
 class MisPlantas extends StatefulWidget {
-  const MisPlantas({super.key});
+  const MisPlantas({Key? key}) : super(key: key);
 
   @override
   State<MisPlantas> createState() => _MisPlantasState();
@@ -64,11 +64,12 @@ class _MisPlantasState extends State<MisPlantas> {
                           } else if (value == 'Eliminar') {
                             deletePlanta(snap.data![i].id);
                           } else if (value == 'Detalles') {
+                            selectedPlantId = snap.data![i].id;
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PagesHumedad()));
+                                    builder: (context) => PagesHumedad(
+                                        selectedPlantId: selectedPlantId)));
                           }
                         }),
                       ),
