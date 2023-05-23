@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/pagesHumedad.dart';
 import 'package:flutter_application_1/pages/pagesPlantas.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/Plantas.dart';
@@ -52,12 +53,22 @@ class _MisPlantasState extends State<MisPlantas> {
                               value: 'Eliminar',
                               child: Text("Eliminar"),
                             ),
+                            const PopupMenuItem(
+                              value: 'Detalles',
+                              child: Text("Detalles Humedad"),
+                            )
                           ];
                         }, onSelected: (String value) {
                           if (value == "Editar") {
                             showEditarPlantaDialog(snap.data![i].id);
                           } else if (value == 'Eliminar') {
                             deletePlanta(snap.data![i].id);
+                          } else if (value == 'Detalles') {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PagesHumedad()));
                           }
                         }),
                       ),
@@ -78,7 +89,11 @@ class _MisPlantasState extends State<MisPlantas> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const PagesPlantas()),
-            );
+            ).then((value) {
+              if (value != null && value) {
+                refreshPlantas();
+              }
+            });
           }),
     );
   }
@@ -169,6 +184,12 @@ class _MisPlantasState extends State<MisPlantas> {
     final url =
         Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas/$selectedPlantId");
     await http.patch(url, headers: headers, body: jsonEncode(plantaAct));
+    setState(() {
+      misPlantas = getplantas();
+    });
+  }
+
+  void refreshPlantas() {
     setState(() {
       misPlantas = getplantas();
     });

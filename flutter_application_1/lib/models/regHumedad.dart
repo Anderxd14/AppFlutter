@@ -6,14 +6,14 @@ class HumedadData {
   final int reghumedad;
   final String createdAt;
   //final int sensorId;
-  //final int plantaId;
+  final int plantaId;
 
   HumedadData({
     required this.id,
     required this.reghumedad,
     required this.createdAt,
     //required this.sensorId,
-    //required this.plantaId,
+    required this.plantaId,
   });
 
   factory HumedadData.fromJson(Map<String, dynamic> json) {
@@ -21,7 +21,9 @@ class HumedadData {
       id: json['id'],
       reghumedad: int.parse(json['reghumedad']),
       createdAt: json['createdAt'],
-      //plantaId: int.parse(json['PlantaId']),
+      plantaId: json['PlantaId'] is int
+          ? json['PlantaId']
+          : int.tryParse(json['PlantaId'].toString()) ?? 0,
     );
   }
 }

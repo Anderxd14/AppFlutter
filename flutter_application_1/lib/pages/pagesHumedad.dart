@@ -41,7 +41,7 @@ class _PagesHumedadState extends State<PagesHumedad> {
                     return DataRow(cells: [
                       DataCell(Text('${humedadData.id}')),
                       DataCell(Text('${humedadData.reghumedad}')),
-                      DataCell(Text(humedadData.createdAt)),
+                      DataCell(Text('${humedadData.plantaId}')),
                     ]);
                   }).toList(),
                 ),
