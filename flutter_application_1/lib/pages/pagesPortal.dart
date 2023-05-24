@@ -7,7 +7,7 @@ import 'package:flutter_application_1/pages/pagesLogin.dart';
 import 'package:flutter_application_1/pages/pagesUser.dart';
 
 class PagesPortada extends StatefulWidget {
-  const PagesPortada({super.key});
+  const PagesPortada({Key? key});
 
   @override
   State<PagesPortada> createState() => _PagesPortadaState();
@@ -43,64 +43,68 @@ class _PagesPortadaState extends State<PagesPortada> {
             height: 150,
           ),
           Container(
-              alignment: Alignment.center,
+            alignment: Alignment.center,
+            child: Container(
+              width: 200,
               child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyFormPage()),
-                    );
-                  },
-                  child: Container(
-                    // Ancho deseado
-                    height: 50, // Alto deseado
-
-                    //margin: const EdgeInsets.all(150),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF04D0D9),
-                      border: Border.all(
-                        color: const Color(0xFF04D0D9),
-                        width: 0,
-                      ),
-                      borderRadius: BorderRadius.circular(15),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyFormPage(),
                     ),
-                    padding: const EdgeInsets.all(1),
-                    child: const Text("Login",
-                        style:
-                            TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
-                  ))),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: const Color(0xFF04D0D9),
+                  side: const BorderSide(color: Color(0xFF04D0D9)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: const EdgeInsets.all(1),
+                ),
+                child: const Text(
+                  "Login",
+                  style: TextStyle(
+                    color: Color(0xFFFBF8EF),
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: 50),
           Container(
-              alignment: Alignment.center,
+            alignment: Alignment.center,
+            child: Container(
+              width: 200,
               child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FormJardineros()),
-                    );
-                  },
-                  child: Container(
-                    // Ancho deseado
-                    height: 50, // Alto deseado
-
-                    //margin: const EdgeInsets.all(150),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF04D0D9),
-                      border: Border.all(
-                        color: const Color(0xFF04D0D9),
-                        width: 0,
-                      ),
-                      borderRadius: BorderRadius.circular(15),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FormJardineros(),
                     ),
-                    padding: const EdgeInsets.all(1),
-                    child: const Text("registrarse",
-                        style:
-                            TextStyle(color: Color(0xFFFBF8EF), fontSize: 20)),
-                  ))),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: const Color(0xFF04D0D9),
+                  side: const BorderSide(color: Color(0xFF04D0D9)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: const EdgeInsets.all(1),
+                ),
+                child: const Text(
+                  "Registrarse",
+                  style: TextStyle(
+                    color: Color(0xFFFBF8EF),
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
           Container(
             height: 100,
           ),
