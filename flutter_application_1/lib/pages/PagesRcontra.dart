@@ -16,7 +16,8 @@ class PagesRcontra extends StatefulWidget {
 
 class _MyPagesRcontra extends State<PagesRcontra> {
   final _formKey = GlobalKey<FormState>();
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/auth/recovery");
+  final url = Uri.parse(
+      "https://proyectoapi-production-1b8e.up.railway.app/API/v1/auth/recovery");
   final headers = {"content-type": "application/json;charset=utf-8"};
   final email = TextEditingController();
 

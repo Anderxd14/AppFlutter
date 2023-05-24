@@ -68,7 +68,7 @@ class _PagesHumedadState extends State<PagesHumedad> {
 
   Future<List<HumedadData>> getHumedad() async {
     final url = Uri.parse(
-        "http://10.0.2.2:3000/Api/v1/Perfil/HumedadMisPlantas/$selectedPlantId");
+        "https://proyectoapi-production-1b8e.up.railway.app/API/v1/Perfil/HumedadMisPlantas/$selectedPlantId");
     final res = await http.get(
       url,
       headers: {

@@ -22,7 +22,8 @@ class MyFormPage extends StatefulWidget {
 
 class _MyFormPageState extends State<MyFormPage> {
   final _formKey = GlobalKey<FormState>();
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/auth/login");
+  final url = Uri.parse(
+      "https://proyectoapi-production-1b8e.up.railway.app/API/v1/auth/login");
   final email = TextEditingController();
   final headers = {"content-type": "application/json;charset=utf-8"};
   final password = TextEditingController();

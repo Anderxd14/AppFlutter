@@ -17,7 +17,8 @@ class MisPlantas extends StatefulWidget {
 }
 
 class _MisPlantasState extends State<MisPlantas> {
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Perfil/MisPlantas");
+  final url = Uri.parse(
+      "https://proyectoapi-production-1b8e.up.railway.app/API/v1/Perfil/MisPlantas");
   late Future<List<Plantas>> misPlantas;
   int? selectedPlantId;
   final tokenManager = TokenManager();

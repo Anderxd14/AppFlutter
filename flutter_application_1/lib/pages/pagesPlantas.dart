@@ -17,7 +17,8 @@ class PagesPlantas extends StatefulWidget {
 
 // ignore: duplicate_ignore
 class _PagesPlantasState extends State<PagesPlantas> {
-  final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas");
+  final url = Uri.parse(
+      "https://proyectoapi-production-1b8e.up.railway.app/API/v1/Plantas");
   final _formKey = GlobalKey<FormState>();
   late Future<List<Plantas>> plantas;
   final nameP = TextEditingController();
