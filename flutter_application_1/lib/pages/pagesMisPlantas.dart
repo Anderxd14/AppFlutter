@@ -6,9 +6,11 @@ import 'package:flutter_application_1/pages/pagesHumedad.dart';
 import 'package:flutter_application_1/pages/pagesPlantas.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/Plantas.dart';
+import 'package:flutter_application_1/models/tokenManager.dart';
 
+// ignore: must_be_immutable
 class MisPlantas extends StatefulWidget {
-  const MisPlantas({Key? key}) : super(key: key);
+  MisPlantas({Key? key}) : super(key: key);
 
   @override
   State<MisPlantas> createState() => _MisPlantasState();
@@ -18,14 +20,10 @@ class _MisPlantasState extends State<MisPlantas> {
   final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Perfil/MisPlantas");
   late Future<List<Plantas>> misPlantas;
   int? selectedPlantId;
+  final tokenManager = TokenManager();
   // ignore: non_constant_identifier_names
   //final DescriP = TextEditingController();
   final nameP = TextEditingController();
-  final headers = {
-    "Authorization":
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjU2LCJyb2xlIjoiSmFyZGluZXJvIiwiaWF0IjoxNjgwMjQ3NzY0fQ.gn3_JcU8xnlBZQrqlIix4FCV5e7cvrEy-cpkK3iUnIE",
-    "content-type": "application/json;charset=utf-8"
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +157,10 @@ class _MisPlantasState extends State<MisPlantas> {
   }
 
   Future<List<Plantas>> getplantas() async {
-    final res = await http.get(url, headers: headers);
+    final res = await http.get(url, headers: {
+      "Authorization": "Bearer ${tokenManager.token}",
+      "content-type": "application/json;charset=utf-8"
+    });
     final lista = List.from(jsonDecode(res.body));
 
     List<Plantas> misPlantas = [];
@@ -175,7 +176,10 @@ class _MisPlantasState extends State<MisPlantas> {
     final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas/$id");
     await http.delete(
       url,
-      headers: headers,
+      headers: {
+        "Authorization": "Bearer ${tokenManager.token}",
+        "content-type": "application/json;charset=utf-8"
+      },
     );
     setState(() {
       misPlantas = getplantas();
@@ -186,7 +190,12 @@ class _MisPlantasState extends State<MisPlantas> {
     final plantaAct = {"nameP": nameP.text};
     final url =
         Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas/$selectedPlantId");
-    await http.patch(url, headers: headers, body: jsonEncode(plantaAct));
+    await http.patch(url,
+        headers: {
+          "Authorization": "Bearer ${tokenManager.token}",
+          "content-type": "application/json;charset=utf-8"
+        },
+        body: jsonEncode(plantaAct));
     setState(() {
       misPlantas = getplantas();
     });

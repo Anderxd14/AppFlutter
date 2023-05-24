@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/regHumedad.dart';
+// ignore: unused_import
+import 'package:flutter_application_1/models/tokenManager.dart';
 
 class PagesHumedad extends StatefulWidget {
   final int? selectedPlantId;
@@ -18,11 +20,8 @@ class PagesHumedad extends StatefulWidget {
 
 class _PagesHumedadState extends State<PagesHumedad> {
   int? selectedPlantId;
-  final headers = {
-    "Authorization":
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjU2LCJyb2xlIjoiSmFyZGluZXJvIiwiaWF0IjoxNjgwMjQ3NzY0fQ.gn3_JcU8xnlBZQrqlIix4FCV5e7cvrEy-cpkK3iUnIE",
-    "content-type": "application/json;charset=utf-8"
-  };
+  final tokenManager = TokenManager();
+
   late Future<List<HumedadData>> humedad;
 
   @override
@@ -70,7 +69,13 @@ class _PagesHumedadState extends State<PagesHumedad> {
   Future<List<HumedadData>> getHumedad() async {
     final url = Uri.parse(
         "http://10.0.2.2:3000/Api/v1/Perfil/HumedadMisPlantas/$selectedPlantId");
-    final res = await http.get(url, headers: headers);
+    final res = await http.get(
+      url,
+      headers: {
+        "Authorization": "Bearer ${tokenManager.token}",
+        "content-type": "application/json;charset=utf-8"
+      },
+    );
     final lista = List.from(jsonDecode(res.body));
 
     List<HumedadData> humedad = [];

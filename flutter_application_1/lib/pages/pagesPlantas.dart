@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/Plantas.dart';
 import 'package:flutter_application_1/pages/pagesMisPlantas.dart';
+// ignore: unused_import
+import 'package:flutter_application_1/models/tokenManager.dart';
 import 'package:http/http.dart' as http;
 
 class PagesPlantas extends StatefulWidget {
@@ -16,14 +18,12 @@ class PagesPlantas extends StatefulWidget {
 // ignore: duplicate_ignore
 class _PagesPlantasState extends State<PagesPlantas> {
   final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas");
-  final headers = {"content-type": "application/json;charset=utf-8"};
-
   final _formKey = GlobalKey<FormState>();
   late Future<List<Plantas>> plantas;
   final nameP = TextEditingController();
   final jardineroId = TextEditingController();
   final DescriP = TextEditingController();
-
+  final tokenManager = TokenManager();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +80,7 @@ class _PagesPlantasState extends State<PagesPlantas> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const MisPlantas()));
+                                                MisPlantas()));
                                   },
                                   style: const ButtonStyle(),
                                   child: const Text('Registrate'),
@@ -103,7 +103,12 @@ class _PagesPlantasState extends State<PagesPlantas> {
       "DescriP": DescriP.text,
       "jardineroId": jardineroId.text
     };
-    await http.post(url, headers: headers, body: jsonEncode(planta));
+    await http.post(url,
+        headers: {
+          "Authorization": "Bearer ${tokenManager.token}",
+          "content-type": "application/json;charset=utf-8"
+        },
+        body: jsonEncode(planta));
     nameP.clear();
     DescriP.clear();
     jardineroId.clear();

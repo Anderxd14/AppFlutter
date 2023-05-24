@@ -11,7 +11,7 @@ class PagesMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Home',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white10,
@@ -98,7 +98,7 @@ class PagesMenu extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const MisPlantas(),
+                        builder: (context) => MisPlantas(),
                       ),
                     );
                   },

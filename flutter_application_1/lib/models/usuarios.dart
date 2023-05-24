@@ -6,12 +6,14 @@ class Usuarios {
   final int id;
   final String email;
   final String password;
+  final String token;
   final String createdAT;
 
   Usuarios({
     required this.id,
     required this.email,
     required this.password,
+    required this.token,
     required this.createdAT,
   });
 
@@ -21,6 +23,7 @@ class Usuarios {
       email: json['email'],
       // ignore: unnecessary_null_in_if_null_operators
       password: json['password'] ?? "contraseña",
+      token: json['token'].toString() ?? "Token",
       createdAT: json['created_at'] ?? "fecha",
     );
   }

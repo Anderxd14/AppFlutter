@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/PagesRcontra.dart';
 import 'package:flutter_application_1/pages/menu.dart';
 import 'package:flutter_application_1/models/usuarios.dart';
+import 'package:flutter_application_1/models/tokenManager.dart';
 import 'package:http/http.dart ' as http;
 
 class MyFormPage extends StatefulWidget {
@@ -47,6 +48,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: email,
                       decoration: const InputDecoration(
                         icon: Icon(Icons.email),
@@ -106,6 +108,14 @@ class _MyFormPageState extends State<MyFormPage> {
 
     if (response.statusCode == 200) {
       // Las credenciales son correctas
+      final responseBody = jsonDecode(response.body);
+      final token = responseBody['token'];
+
+      TokenManager().setToken(token);
+      // Imprime el token en la consola
+      // ignore: avoid_print
+      print('Token: $token');
+
       // ignore: use_build_context_synchronously
       Navigator.push(
         context,

@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/jardineros.dart';
 // ignore: unused_import
+import 'package:flutter_application_1/models/tokenManager.dart';
+// ignore: unused_import
 import 'package:flutter_application_1/models/usuarios.dart';
 import 'package:http/http.dart' as http;
 
@@ -20,6 +22,8 @@ class _PagesJardinerosState extends State<PagesJardineros> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    final tokenManager = TokenManager();
     return Scaffold(
       appBar: AppBar(
         title: const Text('EcoRoot'),
@@ -34,7 +38,7 @@ class _PagesJardinerosState extends State<PagesJardineros> {
                 final jardinero = snapshot.data![index];
                 return ListTile(
                   title: Text("Email: ${jardinero.user.email}"),
-                  subtitle: Text("Name: ${jardinero.name}"),
+                  subtitle: Text("token: ${tokenManager.token}"),
                 );
               },
             );
