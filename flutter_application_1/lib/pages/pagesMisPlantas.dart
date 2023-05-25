@@ -10,7 +10,7 @@ import 'package:flutter_application_1/models/tokenManager.dart';
 
 // ignore: must_be_immutable
 class MisPlantas extends StatefulWidget {
-  MisPlantas({Key? key}) : super(key: key);
+  const MisPlantas({Key? key}) : super(key: key);
 
   @override
   State<MisPlantas> createState() => _MisPlantasState();
@@ -174,7 +174,8 @@ class _MisPlantasState extends State<MisPlantas> {
   }
 
   void deletePlanta(int id) async {
-    final url = Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas/$id");
+    final url = Uri.parse(
+        "https://proyectoapi-production-1b8e.up.railway.app/Api/v1/Plantas/$id");
     await http.delete(
       url,
       headers: {
@@ -189,8 +190,8 @@ class _MisPlantasState extends State<MisPlantas> {
 
   void updatePlanta() async {
     final plantaAct = {"nameP": nameP.text};
-    final url =
-        Uri.parse("http://10.0.2.2:3000/Api/v1/Plantas/$selectedPlantId");
+    final url = Uri.parse(
+        "https://proyectoapi-production-1b8e.up.railway.app/Api/v1/Plantas/$selectedPlantId");
     await http.patch(url,
         headers: {
           "Authorization": "Bearer ${tokenManager.token}",

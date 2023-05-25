@@ -23,7 +23,7 @@ class Plantas {
     return Plantas(
       id: json['id'],
       nameP: json['nameP'],
-      DescriP: json['DescriP'] ?? 'vacio',
+      DescriP: json['Descrip'].toString(),
       createdAt: json['createdAt'],
       jardineroId: json['jardineroId'],
     );

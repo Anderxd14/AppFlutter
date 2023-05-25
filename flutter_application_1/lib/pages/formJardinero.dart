@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter_application_1/models/Jardineros.dart';
+import 'package:flutter_application_1/pages/pagesLogin.dart';
 import 'package:http/http.dart' as http;
 
 class FormJardineros extends StatefulWidget {
@@ -131,7 +132,35 @@ class _FormJardinerosState extends State<FormJardineros> {
         "password": password.text,
       }
     };
-    await http.post(url, headers: headers, body: jsonEncode(jardinero));
+    final res =
+        await http.post(url, headers: headers, body: jsonEncode(jardinero));
+
+    if (res.statusCode == 201) {
+      // ignore: use_build_context_synchronously
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MyFormPage(),
+          ));
+    } else {
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('datos incorrectos'),
+          content: const Text('los datos ingresados son incorrectos'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      );
+    }
+
     name.clear();
     lastName.clear();
     phone.clear();

@@ -23,7 +23,7 @@ class Usuarios {
       email: json['email'],
       // ignore: unnecessary_null_in_if_null_operators
       password: json['password'] ?? "contraseña",
-      token: json['token'].toString() ?? "Token",
+      token: json['token'].toString(),
       createdAT: json['created_at'] ?? "fecha",
     );
   }

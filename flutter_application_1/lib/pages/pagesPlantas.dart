@@ -81,7 +81,7 @@ class _PagesPlantasState extends State<PagesPlantas> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                MisPlantas()));
+                                                const MisPlantas()));
                                   },
                                   style: const ButtonStyle(),
                                   child: const Text('Registrate'),
@@ -104,12 +104,48 @@ class _PagesPlantasState extends State<PagesPlantas> {
       "Descrip": DescriP.text,
       "jardineroId": jardineroId.text
     };
-    await http.post(url,
+    final res = await http.post(url,
         headers: {
           "Authorization": "Bearer ${tokenManager.token}",
           "content-type": "application/json;charset=utf-8"
         },
         body: jsonEncode(planta));
+    if (res.statusCode == 201) {
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Planta Creada'),
+          content: const Text('Se ingresar nueva planta correctamente'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      );
+    } else {
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('datos incorrectos'),
+          content: const Text('los datos ingresados son incorrectos'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      );
+    }
+
     nameP.clear();
     DescriP.clear();
     jardineroId.clear();

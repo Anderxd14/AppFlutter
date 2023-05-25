@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/formJardinero.dart';
@@ -20,15 +20,18 @@ class _PagesPortadaState extends State<PagesPortada> {
       appBar: AppBar(
         title: const Text('EcoRoot'),
       ),
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/PlantaF.png',
-            width: 500,
-            height: 740,
-            fit: BoxFit.cover,
-          ),
-        ],
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              'assets/PlantaF.png',
+              width: 500,
+              height: 740,
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -44,7 +47,7 @@ class _PagesPortadaState extends State<PagesPortada> {
           ),
           Container(
             alignment: Alignment.center,
-            child: Container(
+            child: SizedBox(
               width: 200,
               child: OutlinedButton(
                 onPressed: () {
@@ -76,7 +79,7 @@ class _PagesPortadaState extends State<PagesPortada> {
           const SizedBox(height: 50),
           Container(
             alignment: Alignment.center,
-            child: Container(
+            child: SizedBox(
               width: 200,
               child: OutlinedButton(
                 onPressed: () {

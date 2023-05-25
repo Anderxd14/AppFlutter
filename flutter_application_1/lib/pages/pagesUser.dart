@@ -17,8 +17,6 @@ class PagesJardineros extends StatefulWidget {
 }
 
 class _PagesJardinerosState extends State<PagesJardineros> {
-  final url = Uri.parse(
-      "https://proyectoapi-production-1b8e.up.railway.app/API/v1/Jardineros");
   late Future<List<Jardineros>> jardineros;
 
   @override
@@ -62,7 +60,11 @@ class _PagesJardinerosState extends State<PagesJardineros> {
   }
 
   Future<List<Jardineros>> getJardineros() async {
-    final response = await http.get(url);
+    final url = Uri.parse(
+        "https://proyectoapi-production-1b8e.up.railway.app/API/v1/Jardineros/");
+    final response = await http.get(
+      url,
+    );
     final jsonData = jsonDecode(response.body);
 
     List<Jardineros> jardineros = [];
