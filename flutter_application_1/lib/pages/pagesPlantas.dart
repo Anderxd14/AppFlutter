@@ -101,7 +101,7 @@ class _PagesPlantasState extends State<PagesPlantas> {
   void savePlanta() async {
     final planta = {
       "nameP": nameP.text,
-      "DescriP": DescriP.text,
+      "Descrip": DescriP.text,
       "jardineroId": jardineroId.text
     };
     await http.post(url,
