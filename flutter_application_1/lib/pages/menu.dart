@@ -7,7 +7,8 @@ import 'package:flutter_application_1/pages/pagesPlantas.dart';
 import 'package:flutter_application_1/pages/pagesUser.dart';
 
 class PagesMenu extends StatelessWidget {
-  const PagesMenu({Key? key}) : super(key: key);
+  final int? userId;
+  const PagesMenu({Key? key, this.userId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +45,14 @@ class PagesMenu extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
-            const Text(
-              "(Usuario)",
-              style: TextStyle(color: Colors.black, fontSize: 60),
+            Text(
+              'User ID: $userId',
+              style: const TextStyle(color: Colors.black, fontSize: 60),
               textAlign: TextAlign.end,
             ),
             const SizedBox(height: 40),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
@@ -61,7 +62,7 @@ class PagesMenu extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const PagesJardineros(),
+                        builder: (context) => PagesUsuarios(userid: userId),
                       ),
                     );
                   },

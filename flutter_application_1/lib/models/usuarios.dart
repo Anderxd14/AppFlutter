@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/jardineros.dart';
 
 class Usuarios {
   final int id;
@@ -8,6 +9,7 @@ class Usuarios {
   final String password;
   final String token;
   final String createdAT;
+  //final Jardineros jardinero;
 
   Usuarios({
     required this.id,
@@ -15,6 +17,7 @@ class Usuarios {
     required this.password,
     required this.token,
     required this.createdAT,
+    //required this.jardinero,
   });
 
   factory Usuarios.fromJson(Map<String, dynamic> json) {
@@ -25,6 +28,7 @@ class Usuarios {
       password: json['password'] ?? "contraseña",
       token: json['token'].toString(),
       createdAT: json['created_at'] ?? "fecha",
+      //jardinero: json['jardinero'] != null ? Jardineros.fromJson(json['jardinero']) : null,
     );
   }
 }

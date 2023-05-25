@@ -106,13 +106,15 @@ class _MyFormPageState extends State<MyFormPage> {
 
     final response =
         await http.post(url, headers: headers, body: jsonEncode(usuarios));
-
+    // ignore: unused_local_variable
+    int userId;
     if (response.statusCode == 200) {
       // Las credenciales son correctas
       final responseBody = jsonDecode(response.body);
       final token = responseBody['token'];
-
+      final id = responseBody['user']['id'];
       TokenManager().setToken(token);
+      userId = id;
       // Imprime el token en la consola
       // ignore: avoid_print
       print('Token: $token');
@@ -121,7 +123,7 @@ class _MyFormPageState extends State<MyFormPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const PagesMenu(),
+          builder: (context) => PagesMenu(userId: userId),
         ),
       );
     } else {
